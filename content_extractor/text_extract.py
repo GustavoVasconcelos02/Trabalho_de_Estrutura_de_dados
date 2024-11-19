@@ -31,8 +31,8 @@ def process_pdfs_in_folder(folder_path, output_folder):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    files = os.listdir(folder_path)  # Obtém os arquivos sem ordenar
-    successful_conversions = 0  # Contador de conversões bem-sucedidas
+    files = os.listdir(folder_path)
+    successful_conversions = 0
 
     for filename in files:
         if filename.endswith(".pdf"):
@@ -44,9 +44,8 @@ def process_pdfs_in_folder(folder_path, output_folder):
                 with open(output_path, "w", encoding="utf-8") as f:
                     f.write(text)
                 print(f"Texto extraído salvo em {output_path}")
-                successful_conversions += 1  # Incrementa a contagem
+                successful_conversions += 1
 
-    # Exibe o total de arquivos convertidos com sucesso
     print(f"\nTotal de arquivos convertidos com sucesso: {successful_conversions}")
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
