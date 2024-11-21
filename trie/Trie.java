@@ -1,4 +1,4 @@
-package src.trie;
+package trie;
 
 public class Trie {
  private final TrieNode root;
@@ -10,9 +10,8 @@ public class Trie {
 
  public void insert(String word, String archive)
  {
-    word = word.replaceAll(".", "");
-    word = word.replaceAll(",", "");
-    String [] arr = word.split(" ");
+    String text =  word.replaceAll("[^a-zA-Z0-9]", " ");
+    String [] arr = text.split(" ");
 
     for(int i =0;i< arr.length;i++)
     {
@@ -22,19 +21,21 @@ public class Trie {
             node = node.children.get(ch);
         }
         node.isEndOfWord = true;
-        node.archive.insert(archive);
+        if (!node.archive.find(archive))
+        {
+            node.archive.insert(archive);
+        }
     } 
  }
- public boolean search(String word) {
+ public void search(String word) {
    TrieNode node = root;
    for (char ch : word.toCharArray()) {
        node = node.children.get(ch);
        if (node == null) {
-           return false;
+        System.out.println("Registro não encontrado!");
        }
    }
    node.archive.print();
-   return true;
 }
 
 }

@@ -1,4 +1,4 @@
-package src.archive;
+package archive;
 
 public class Node<T> {
 	T value;

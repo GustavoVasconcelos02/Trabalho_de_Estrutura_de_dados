@@ -1,26 +1,29 @@
 package src;
 
+import java.util.LinkedList;
+
+import archive.Archive;
 import hashing.HashTable;
 
 public class HashTableService {
-    private HashTable<Integer, String> hashTable;
+    private HashTable<Integer, Archive> hashTable;
 
     public HashTableService(int tamanhoTabela) {
         this.hashTable = new HashTable<>(tamanhoTabela);
     }
 
-    public HashTable<Integer, String> getHashTable() {
+    public HashTable<Integer, Archive> getHashTable() {
         return hashTable;
     }
 
-    public boolean inserirComHashDivisao(String conteudo, int M) {
-        int chave = hashDivisao(conteudo, M);
-        return hashTable.put(chave, conteudo);
+    public boolean inserirComHashDivisao(Archive archive, int M) {
+        int chave = hashDivisao(archive.getNome(), M);
+        return hashTable.put(chave, archive);
     }
 
-    public boolean inserirComHashDJB2(String conteudo) {
-        int chave = hashDJB2(conteudo);
-        return hashTable.put(chave, conteudo);
+    public boolean inserirComHashDJB2(Archive archive) {
+        int chave = hashDJB2(archive.getNome());
+        return hashTable.put(chave, archive);
     }
 
 

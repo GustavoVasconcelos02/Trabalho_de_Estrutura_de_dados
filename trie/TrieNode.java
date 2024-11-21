@@ -1,9 +1,9 @@
-package src.trie;
+package trie;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import src.archive.LinkedList;
+import archive.LinkedList;
 
 public class TrieNode {
 	

@@ -1,4 +1,4 @@
-package src.archive;
+package archive;
 
 public class LinkedList<T> {
 	int size;
@@ -19,12 +19,25 @@ public class LinkedList<T> {
 		newNode.next = head;
 		head = newNode;
 	}
+
+	public boolean find(T value) {
+		Node<T> node = this.head;
+		while(node != null)
+		{
+			if(node.value == value)
+			{
+				return true;
+			}
+			node = node.next;
+		}
+		return false;
+	}
 	
 	public void print() {
 		Node<T> node = this.head;
 		while(node != null)
 		{
-			System.out.println(node.value);
+			System.out.println("- "+node.value);
 			node = node.next;
 		}
 	}
