@@ -33,9 +33,13 @@ public class Trie {
        node = node.children.get(ch);
        if (node == null) {
         System.out.println("Registro não encontrado!");
+        break;
        }
    }
-   node.archive.print();
+   if(node!=null)
+   {
+    node.archive.print();
+   }
 }
 
 }
